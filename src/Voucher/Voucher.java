@@ -2,8 +2,11 @@ package Voucher;
 
 import BackEnd.AplicaNimbusLookAndFeel;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
@@ -19,7 +22,11 @@ import java.util.concurrent.ExecutionException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
+import javax.swing.KeyStroke;
 import javax.swing.SwingWorker;
 import javax.swing.text.MaskFormatter;
 import net.sf.jasperreports.engine.JREmptyDataSource;
@@ -45,6 +52,18 @@ public class Voucher extends javax.swing.JFrame {
         AplicaNimbusLookAndFeel.pegaNimbus();
         Color minhaCor = new Color(204, 255, 204);
         this.getContentPane().setBackground(minhaCor);
+        URL url1 = this.getClass().getResource("/Imagens/02.png");
+        Image iconeTitulo = Toolkit.getDefaultToolkit().getImage(url1);
+        this.setIconImage(iconeTitulo);
+        KeyStroke escapeKeyStroke = KeyStroke.getKeyStroke(KeyEvent.VK_ESCAPE, 0, false);
+        Action escapeAction = new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fechar();
+            }
+        };
+        getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(escapeKeyStroke, "ESCAPE");
+        getRootPane().getActionMap().put("ESCAPE", escapeAction);
         buttonGerar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -84,6 +103,10 @@ public class Voucher extends javax.swing.JFrame {
             }
         });
 
+    }
+    
+    public void fechar() {
+        this.dispose();
     }
 
     @SuppressWarnings("unchecked")

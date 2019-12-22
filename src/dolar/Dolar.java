@@ -2,6 +2,8 @@ package dolar;
 
 import BackEnd.AplicaNimbusLookAndFeel;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -43,6 +45,9 @@ public class Dolar extends javax.swing.JFrame {
         };
         getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(escapeKeyStroke, "ESCAPE");
         getRootPane().getActionMap().put("ESCAPE", escapeAction);
+        URL url1 = this.getClass().getResource("/Imagens/02.png");
+        Image iconeTitulo = Toolkit.getDefaultToolkit().getImage(url1);
+        this.setIconImage(iconeTitulo);
     }
 
     public void fechar() {
@@ -145,8 +150,6 @@ public class Dolar extends javax.swing.JFrame {
         Date data = formato.parse(dataEmUmFormato);
         formato.applyPattern("dd/MM/yyyy HH:mm:SS");
         String dataFormatada = formato.format(data);
-        textEuro.setText("R$ " + parsedContentFromUrl.substring(168, 173));
-        textPeso.setText("R$ " + parsedContentFromUrl.substring(320, 324));
     }
 
     @SuppressWarnings("unchecked")
@@ -170,10 +173,6 @@ public class Dolar extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         dataLabel = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        textEuro = new javax.swing.JLabel();
-        textPeso = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Conversor de Dolar");
@@ -236,7 +235,7 @@ public class Dolar extends javax.swing.JFrame {
                 calculateMouseClicked(evt);
             }
         });
-        getContentPane().add(calculate, new org.netbeans.lib.awtextra.AbsoluteConstraints(223, 297, -1, -1));
+        getContentPane().add(calculate, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, -1, -1));
 
         cleanFields.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cleanFields.setText("Limpar Campos");
@@ -245,7 +244,7 @@ public class Dolar extends javax.swing.JFrame {
                 cleanFieldsMouseClicked(evt);
             }
         });
-        getContentPane().add(cleanFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 299, -1, -1));
+        getContentPane().add(cleanFields, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
 
         refresh.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         refresh.setText("Atualizar");
@@ -254,7 +253,7 @@ public class Dolar extends javax.swing.JFrame {
                 refreshMouseClicked(evt);
             }
         });
-        getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 297, -1, -1));
+        getContentPane().add(refresh, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 255));
@@ -278,27 +277,7 @@ public class Dolar extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("*Desenvolvido por Danilo de Maria");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(213, 340, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel9.setText("Euro");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 234, -1, -1));
-
-        textEuro.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        textEuro.setForeground(new java.awt.Color(255, 0, 0));
-        textEuro.setText("jLabel2");
-        getContentPane().add(textEuro, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 234, -1, -1));
-
-        textPeso.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        textPeso.setForeground(new java.awt.Color(255, 0, 0));
-        textPeso.setText("jLabel2");
-        getContentPane().add(textPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 255, -1, -1));
-
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 255));
-        jLabel10.setText("Peso");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 255, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -315,7 +294,7 @@ public class Dolar extends javax.swing.JFrame {
 
     private void refreshMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_refreshMouseClicked
 
-        try {            
+        try {
             iniciar();
         } catch (NoSuchFieldException ex) {
             Logger.getLogger(Dolar.class.getName()).log(Level.SEVERE, null, ex);
@@ -378,17 +357,13 @@ public class Dolar extends javax.swing.JFrame {
     private javax.swing.JLabel dolarCambio;
     private javax.swing.JLabel image;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField reais;
     private javax.swing.JButton refresh;
-    private javax.swing.JLabel textEuro;
-    private javax.swing.JLabel textPeso;
     // End of variables declaration//GEN-END:variables
 }

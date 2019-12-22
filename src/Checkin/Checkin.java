@@ -189,7 +189,7 @@ public class Checkin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSairActionPerformed
 
     private void buttonLinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLinkActionPerformed
-        String url = "http://www.marinchateau.com/checkin.php?id=";
+        String url = "https://www.marinchateau.com/checkin.php?id=";
         String nome = textNome.getText();
         String ID = textID.getText();
         nome = nome.replaceAll(" ", "%20");

@@ -71,7 +71,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
         buttonDolar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel Marin Château");
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Guarda-sol.jpg"))); // NOI18N
